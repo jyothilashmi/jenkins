@@ -2,10 +2,19 @@ package testing.revisit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+@Listeners(testing.revisit.ExtentTestNGITestListener.class)
 public class facebook {
-	public static void main(String[] args) {
-		System.setProperty("webdriver.gecko.driver",System.getProperty("user.dir")+"\\"+"chromedriver.exe");
+	
+	@Test
+	public void testtours()
+	{
+		//System.setProperty("webdriver.gecko.driver",System.getProperty("user.dir")+"\\"+"chromedriver.exe");
+		WebDriverManager.chromedriver().setup();
 		WebDriver driver = new ChromeDriver();
 		String baseUrl = "http://demo.guru99.com/test/newtours/";
 		String expectedTitle = "Welcome: Mercury Tours";
@@ -29,6 +38,11 @@ public class facebook {
        
         //close chrome
         driver.close();
+	}
+	@Test
+	public void tearDown()
+	{
+		System.out.println("closing....");
 	}
 
 }
