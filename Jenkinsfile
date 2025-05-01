@@ -24,7 +24,7 @@ stage('Run TestNG Suite')
 steps
 {
 echo 'Building the project......!!'
-sh 'mvn clean test -DsuiteXmlFile=testng.xml'
+bat 'mvn clean test -DsuiteXmlFile=testng.xml'
 }
 
 }
