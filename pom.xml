@@ -90,7 +90,7 @@
                      <version>2.16</version>
                      <configuration>
                        <suiteXmlFiles>
-                       <suiteXmlFile>/Resources/Regression.xml</suiteXmlFile> 
+                       <suiteXmlFile>testng.xml</suiteXmlFile> 
                         </suiteXmlFiles>  
                           
                   </configuration>
