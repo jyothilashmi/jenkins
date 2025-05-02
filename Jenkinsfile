@@ -12,6 +12,19 @@ tools {
 
 stages
 {
+stage('Clean Workspace') {
+            steps {
+                script {
+                    try {
+                        cleanWs()
+                    } catch (err) {
+                        echo "cleanWs() failed: ${err}. Trying manual cleanup..."
+                        sh 'rm -rf *'
+                    }
+                }
+            }
+        }
+
 stage('Checkout')
 {
 steps
@@ -51,15 +64,17 @@ stage('Publish Extent Report') {
 }
 post {
         always {
-            cleanWs()
-        }
-
-        success {
-            echo 'TestNG suite ran successfully!'
-        }
-
-        failure {
-            echo 'TestNG suite failed. Check logs.'
+            emailext (
+                subject: "Automation Test Report - Build #${BUILD_NUMBER}",
+                body: """
+                    <p>Hi,</p>
+                    <p>The test suite has completed. Please find the <a href="${BUILD_URL}HTML_20Report/">Extent Report</a>.</p>
+                    <p>Status: <strong>${currentBuild.currentResult}</strong></p>
+                """,
+                mimeType: 'text/html',
+                to: 'jyothilakshmisree04@gmail.com'
+            )
         }
     }
+
 }
