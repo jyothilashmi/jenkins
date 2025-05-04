@@ -13,14 +13,14 @@ public class facebook {
 	@Test
 	public void testtours()
 	{
-		//System.setProperty("webdriver.gecko.driver",System.getProperty("user.dir")+"\\"+"chromedriver.exe");
+		
 		WebDriverManager.chromedriver().setup();
 		WebDriver driver = new ChromeDriver();
-		String baseUrl = "http://demo.guru99.com/test/newtours/";
-		String expectedTitle = "Welcome: Mercury Tours";
+		String baseUrl = "https://www.facebook.com/";
+		String expectedTitle = "Facebook - log in or sign up";
         String actualTitle = "";
 
-        // launch Fire fox and direct it to the Base URL
+        // launch chrome and direct it to the Base URL
         driver.get(baseUrl);
 
         // get the actual value of the title
