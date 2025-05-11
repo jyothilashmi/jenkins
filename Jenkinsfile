@@ -72,7 +72,7 @@ post {
                     <p>Status: <strong>${currentBuild.currentResult}</strong></p>
                 """,
                 mimeType: 'text/html',
-                to: 'jyothilakshmisree04@gmail.com'
+                to: 'xxxxxxxxxx@gmail.com'
             )
         }
     }
